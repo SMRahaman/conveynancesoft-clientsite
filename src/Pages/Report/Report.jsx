@@ -9,9 +9,10 @@ import Swal from "sweetalert2";
 const Report = () => {
   const { user } = useContext(AuthContext);
   const { setFilterData, filterData } = useContext(reportContext);
-  console.log(setFilterData);
+  console.log(filterData);
   const [selectStartDate, setSeletStartDate] = useState("");
   const [selectEndDate, setSelectEndDate] = useState("");
+  const now = new Date().toDateString();
   const navigate = useNavigate();
   const initialValue = 0;
   const sumWithInitial = filterData?.reduce(
@@ -25,27 +26,36 @@ const Report = () => {
         `/filterd-conveynance-bill?start=${selectStartDate}&end=${selectEndDate}&email=${user?.email}`
       )
       .then((res) => {
-        if (res.data) {
-          setFilterData(res.data);
-        }
         if (res.data.length === 0) {
           alert("Data not found");
+          return;
+        } else {
+          setFilterData(res.data);
         }
       })
       .catch((error) => console.log(error));
   };
 
   const redirectHandler = () => {
+    axiosPublic
+      .post("/history", {
+        userName: user?.displayName,
+        userEmail: user?.email,
+        startDate: selectStartDate,
+        endDate: selectEndDate,
+        withdrawDate: now,
+        totalAmout: sumWithInitial,
+      })
+      .then((res) => {
+        if (res.data.insertedId) {
+          Swal.fire({
+            title: "Congratulation!",
+            text: "Save your data history purpose",
+            icon: "success",
+          });
+        }
+      });
     navigate("/conveynance-print-layout");
-    axiosPublic.post("/history", {}).then((res) => {
-      if (res.data.insertedId) {
-        Swal.fire({
-          title: "Congratulation!",
-          text: "Save your data history purpose",
-          icon: "success",
-        });
-      }
-    });
   };
 
   return (
@@ -81,7 +91,7 @@ const Report = () => {
         </div>
       </form>
       <div>
-        {filterData?.length !== 0 && (
+        {filterData?.length > 0 && (
           <div>
             <PrintLayout></PrintLayout>
             <div className="text-right">
