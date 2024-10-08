@@ -6,25 +6,22 @@ import { MdAutoDelete } from "react-icons/md";
 import { NavLink, useLoaderData } from "react-router-dom";
 import Swal from "sweetalert2";
 import { axiosPublic } from "../../Hook/useAxiosPublic";
-import { FcElectricalSensor } from "react-icons/fc";
+
 const PAGE_SIZES = [15, 10, 20];
 const ConveynanceView = () => {
-  const [loader, setLoader] = useState(true);
   const conveynanceData = useLoaderData();
-  const [data, setData] = useState(conveynanceData);
-  console.log(data);
+  const [loader, setLoader] = useState(true);
   const [pageSize, setPageSize] = useState(PAGE_SIZES[1]);
   useEffect(() => {
     setPage(1);
     setLoader(false);
   }, [pageSize]);
   const [page, setPage] = useState(1);
-  const [records, setRecords] = useState(data?.slice(0, pageSize));
+  const [records, setRecords] = useState(conveynanceData?.slice(0, pageSize));
   useEffect(() => {
     const from = (page - 1) * pageSize;
     const to = from + pageSize;
-    setRecords(data?.slice(from, to));
-    setLoader(false);
+    setRecords(conveynanceData?.slice(from, to));
   }, [page, pageSize]);
 
   const conveynanceDelete = (id) => {
@@ -46,8 +43,8 @@ const ConveynanceView = () => {
               icon: "success",
             });
             setLoader(true);
-            const remaining = data.filter((con) => con._id !== id);
-            setData(remaining);
+            const remaining = records.filter((con) => con._id !== id);
+            setRecords(remaining);
             setLoader(false);
           }
         });
@@ -55,8 +52,8 @@ const ConveynanceView = () => {
     });
   };
   return (
-    <div className="grow p-3  ">
-      <h2 className="text-2xl mb-4">Conveynance Data Record</h2>
+    <div className="grow p-3 mt-3">
+      <h2 className="text-2xl mb-5">Conveynance Data Record</h2>
       <div className="text-xs">
         <DataTable
           striped
@@ -136,8 +133,8 @@ const ConveynanceView = () => {
               ),
             },
           ]}
-          totalRecords={data?.length}
-          records={records ? data : []}
+          totalRecords={conveynanceData?.length}
+          records={records}
           fetching={loader}
           paginationActiveBackgroundColor="grape"
           recordsPerPage={pageSize}

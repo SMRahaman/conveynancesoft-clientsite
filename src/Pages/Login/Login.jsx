@@ -27,9 +27,12 @@ const Login = () => {
   };
   return (
     <div>
-      <div className="hero min-h-screen bg-base-200">
-        <div className="hero-content flex-col lg:flex-row-reverse">
-          <div className="card shrink-0 w-[400px] max-w-sm shadow-2xl bg-base-100">
+      <div className="hero min-h-screen bg-base-200 ">
+        <div className="hero-content flex-col">
+          <div className="font-bold uppercase text-center text-2xl">
+            Conveynance Bill Management System
+          </div>
+          <div className="card shrink-0 w-full md:w-[400px] max-w-sm shadow-2xl bg-base-100">
             <form onSubmit={loginHandler} className="card-body">
               <div>
                 <h3 className="text-2xl uppercase font-bold text-center">

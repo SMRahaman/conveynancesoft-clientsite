@@ -11,6 +11,8 @@ import Report from "../Pages/Report/Report";
 import History from "../Pages/History/History";
 import ProtectedRout from "../components/ProtectedRout";
 import PrintLayout from "../Pages/PrintLayout/PrintLayout";
+import UserEdit from "../Pages/User/UserEdit";
+import UserProfile from "../Pages/User/UserProfile";
 
 export const router = createBrowserRouter([
   {
@@ -69,6 +71,22 @@ export const router = createBrowserRouter([
         loader: () => {
           return fetch("https://conveynance-serversite.vercel.app/api/users");
         },
+      },
+      {
+        path: "/user-edit/:email",
+        element: (
+          <ProtectedRout>
+            <UserEdit></UserEdit>
+          </ProtectedRout>
+        ),
+      },
+      {
+        path: "/user-profile",
+        element: (
+          <ProtectedRout>
+            <UserProfile></UserProfile>
+          </ProtectedRout>
+        ),
       },
       {
         path: "/register",

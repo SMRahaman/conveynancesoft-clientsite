@@ -50,9 +50,9 @@ const Register = () => {
   };
   return (
     <div>
-      <div className="hero min-h-screen bg-base-200 py-20">
-        <div className="hero-content flex-col lg:flex-row-reverse">
-          <div className="card shrink-0 w-[400px]  shadow-2xl bg-base-100">
+      <div className=" min-h-screen bg-base-200 py-20 ">
+        <div className="hero-content flex-col lg:flex-row-reverse px-8">
+          <div className="card shrink-0 w-[370px]  md:w-[400px] shadow-2xl bg-base-100">
             <form onSubmit={registerHandler} className="card-body">
               <div>
                 <h3 className="text-2xl uppercase font-bold text-center">

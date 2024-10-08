@@ -10,8 +10,6 @@ const PAGE_SIZES = [15, 10, 20];
 const UserView = () => {
   const [loader, setLoader] = useState(true);
   const userData = useLoaderData();
-  const [data, setData] = useState(userData);
-  console.log(data);
   const [pageSize, setPageSize] = useState(PAGE_SIZES[1]);
   useEffect(() => {
     setPage(1);
@@ -62,7 +60,7 @@ const UserView = () => {
             });
             setLoader(true);
             const remaining = data.find((con) => con._id === id);
-            setData(remaining);
+            setRecords(remaining);
             setLoader(false);
           }
         });
@@ -168,7 +166,7 @@ const UserView = () => {
             },
           ]}
           totalRecords={userData?.length}
-          records={records ? data : []}
+          records={records}
           fetching={loader}
           paginationActiveBackgroundColor="grape"
           recordsPerPage={pageSize}

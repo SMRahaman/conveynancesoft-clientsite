@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { FaTachometerAlt } from "react-icons/fa";
+import { FaTachometerAlt, FaUser, FaHistory } from "react-icons/fa";
 import { NavLink } from "react-router-dom";
 import { GiCampingTent } from "react-icons/gi";
 import { AiFillProduct } from "react-icons/ai";
@@ -15,9 +15,9 @@ const Sidebar = () => {
   );
   console.log(specificUser);
   return (
-    <div className="bg-gray-100 text-gray-900 h-screen px-4 fixed w-16 md:w-64 border-r border-gray-300 dark:border-gray-600 dark:bg-gray-900 dark:text-white">
+    <div className="bg-gray-100 text-gray-900 h-screen px-4 fixed w-16 md:w-64 border-r border-gray-300 dark:border-gray-600 dark:bg-gray-900 dark:text-white md:block hidden">
       <h1 className="text-xl font-bold hidden md:block mt-4 text-center itaNavLinkc">
-        Conveynace Software
+        Conveynace Bill Managment System
       </h1>
       <ul className=" menu flex flex-col mt-5 text-xl">
         <NavLink
@@ -71,7 +71,7 @@ const Sidebar = () => {
                 className="flex items-center py-3 px-2 space-x-4 hover:rounded hover:cursor-pointer 
             hover:bg-blue-600 hover:text-white"
               >
-                <FaTachometerAlt />
+                <FaUser />
                 <span className="hidden md:inNavLinkne lg:block text-lg">
                   User Control
                 </span>
@@ -110,9 +110,9 @@ const Sidebar = () => {
               <NavLink
                 to="/report-history"
                 className="flex items-center py-3 px-2 space-x-4 hover:rounded hover:cursor-pointer 
-            hover:bg-blue-600 hover:text-white"
+            hover:bg-blue-600  hover:text-white"
               >
-                <FaTachometerAlt />
+                <FaHistory />
                 <span className="hidden md:inNavLinkne lg:block text-lg">
                   Histroy
                 </span>

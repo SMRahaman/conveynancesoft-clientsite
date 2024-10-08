@@ -35,7 +35,7 @@ const ConveynanceAdd = () => {
     });
   };
   return (
-    <div className="grow p-8">
+    <div className="grow p-8  ">
       <h2 className="text-2xl mb-4">Conveynance Data Add</h2>
       <form onSubmit={conveynanceAddHanlder}>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3  gap-5 mb-5 ">
@@ -94,6 +94,9 @@ const ConveynanceAdd = () => {
               <option>Bike</option>
               <option>Uber</option>
               <option>Pathao</option>
+              <option>CNG</option>
+              <option>Leguna</option>
+              <option>Leguna + Rickshaw</option>
             </select>
           </div>
           <div className="flex flex-col gap-2">
@@ -108,7 +111,10 @@ const ConveynanceAdd = () => {
           </div>
         </div>
         <div className="text-center">
-          <button type="submit" className="btn btn-primary text-lg w-1/2 mt-8">
+          <button
+            type="submit"
+            className="btn btn-primary text-lg md:w-1/2 w-full mt-8"
+          >
             Conveynance Data Add
           </button>
         </div>

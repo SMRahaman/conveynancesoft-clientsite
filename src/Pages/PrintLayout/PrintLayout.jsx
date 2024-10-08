@@ -25,7 +25,10 @@ const PrintLayout = ({}) => {
   });
   return (
     <div>
-      <div ref={componentRef} className=" bg-white  my-5 p-2 mx-5">
+      <div
+        ref={componentRef}
+        className=" bg-white my-1 mx-1 p-1  md:my-5 md:p-2 md:mx-5"
+      >
         <div>
           <h2 className="text-center text-black text-[20px] font-bold mb-2">
             Conveynance-Expenditure Statement
@@ -58,7 +61,7 @@ const PrintLayout = ({}) => {
             Date: {now}
           </div>
         </div>
-        <div className="mt-3">
+        <div className="mt-3 hidden md:block ">
           <table className="text-black border-collapse border border-black w-full">
             <thead className="text-sm text-center">
               <tr>
@@ -140,6 +143,9 @@ const PrintLayout = ({}) => {
               </tr>
             </tbody>
           </table>
+        </div>
+        <div className="md:hiden block text-black my-5 text-center">
+          Total Amount: {sumWithInitial}
         </div>
       </div>
       <div>

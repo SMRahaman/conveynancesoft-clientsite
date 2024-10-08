@@ -22,7 +22,7 @@ const History = () => {
   }, [page, pageSize]);
   return (
     <div className="grow p-3  ">
-      <h2 className="text-2xl mb-4">User Data Record</h2>
+      <h2 className="text-2xl mb-4">User History</h2>
       <div className="text-xs">
         <DataTable
           striped
@@ -51,13 +51,13 @@ const History = () => {
               accessor: "userEmail",
               textAlign: "center",
               title: <Box mx={6}>Email</Box>,
-              width: 150,
+              width: 200,
             },
             {
               accessor: "startDate",
               textAlign: "center",
               title: <Box mx={6}>Start Date(Y-M-D)</Box>,
-              width: 110,
+              width: 120,
             },
             {
               accessor: "endDate",
@@ -67,7 +67,7 @@ const History = () => {
                   End Date(Y-M-D)
                 </Box>
               ),
-              width: 110,
+              width: 120,
             },
             {
               accessor: "withdrawDate",

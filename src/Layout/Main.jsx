@@ -20,8 +20,8 @@ const Main = () => {
             location.pathname == "/register" ||
             location.pathname == "/login" ||
             location.pathname == "/conveynance-print-layout"
-              ? "w-full"
-              : "grow ml-16 md:ml-64 h-full  bg-gray-100 text-gray-900 dark:bg-gray-900 dark:text-white"
+              ? "w-full "
+              : "grow md:ml-64 h-full w-full bg-gray-100 text-gray-900 dark:bg-gray-900 dark:text-white"
           }
         >
           {location.pathname !== "/register" &&
