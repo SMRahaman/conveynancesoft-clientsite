@@ -97,6 +97,7 @@ const ConveynanceAdd = () => {
               <option>CNG</option>
               <option>Leguna</option>
               <option>Leguna + Rickshaw</option>
+              <option>Metro Rail</option>
             </select>
           </div>
           <div className="flex flex-col gap-2">
